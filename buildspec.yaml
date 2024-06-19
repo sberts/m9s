@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install
+      - echo Build started on `date`
+      - npm run build
+      - echo Build completed on `date`
+      - aws s3 cp build/ s3://m10city-main/ --recursive
